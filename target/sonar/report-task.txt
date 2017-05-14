@@ -1,0 +1,5 @@
+projectKey=com.pramod:testCI
+serverUrl=http://localhost:9000
+dashboardUrl=http://localhost:9000/dashboard/index/com.pramod:testCI
+ceTaskId=AVwIIEzaHHLLn-d4oAIe
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVwIIEzaHHLLn-d4oAIe

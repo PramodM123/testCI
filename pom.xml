@@ -5,14 +5,146 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>testCI</name>
   <description>testCI</description>
-  
+<!-- coverage -->
+<!-- 
+<profiles>
+<profile>
+    <id>coverage</id>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>${jacoco.agent.ut.arg}</argLine>
+
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>org.sonar.java.jacoco.JUnitListener</value>
+                        </property>
+                    </properties>
+ 
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <argLine>-Xmx1024m -XX:MaxPermSize=256m ${jacoco.agent.it.arg}
+                    </argLine>
+
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>org.sonar.java.jacoco.JUnitListener</value>
+                        </property>
+                    </properties>
+
+                    <reportsDirectory>${project.build.directory}/surefire-reports
+                    </reportsDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+
+                    <execution>
+                        <id>prepare-ut-agent</id>
+                        <phase>process-test-classes</phase>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <destFile>${sonar.jacoco.reportPath}</destFile>
+                            <propertyName>jacoco.agent.ut.arg</propertyName>
+                            <append>true</append>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>prepare-it-agent</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <destFile>${sonar.jacoco.itReportPath}</destFile>
+                            <propertyName>jacoco.agent.it.arg</propertyName>
+                            <append>true</append>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
+        <dependency>
+            <groupId>org.codehaus.sonar-plugins.java</groupId>
+            <artifactId>sonar-jacoco-listeners</artifactId>
+            <version>${sonar-jacoco-listeners.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+		      <groupId>junit</groupId>
+		      <artifactId>junit</artifactId>
+		      <version>4.4</version>  
+		</dependency>
+    </dependencies>
+</profile>
+</profiles>
+ -->
+<!-- Integraton tests -->
+
+
+<dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.4</version>
-    <!-- <scope>test</scope> -->
+    
     </dependency>
   </dependencies>
-  
+ 
+  <build>
+		<plugins>
+		 <plugin>
+		  <groupId>org.jacoco</groupId>
+		  <artifactId>jacoco-maven-plugin</artifactId>
+		  <version>0.5.5.201112152213</version>
+		  <configuration>
+		   <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
+		   <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
+		  </configuration>
+		  <executions>
+		   <execution>
+		    <id>jacoco-initialize</id>
+		    <goals>
+		     <goal>prepare-agent</goal>
+		    </goals>
+		   </execution>
+		   <execution>
+		    <id>jacoco-site</id>
+		    <phase>package</phase>
+		    <goals>
+		     <goal>report</goal>
+		    </goals>
+		   </execution>
+		  </executions>
+		 </plugin>
+		 <plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-compiler-plugin</artifactId>
+		  <configuration>
+		   <source>1.5</source>
+		   <target>1.5</target>
+		  </configuration>
+		 </plugin>
+		</plugins>
+
+    </build>
+
 </project>

@@ -37,4 +37,16 @@ public class PramodMulTest {
 		  PramodMul pram = new PramodMul();
 		assertEquals("10 / 5 must be 2", 2 , pram.division(10, 5)); 
 		}
+	  
+	  @Test
+	  public void testMultiply1() {
+		  PramodMul tester = new PramodMul();
+	    assertEquals("10 x 5 must be 50", 50, tester.multiply(10, 5));
+	  }
+	  
+	  @Test
+	  public void testDiv1() {
+		  PramodMul pram = new PramodMul();
+		assertEquals("10 / 5 must be 2", 2 , pram.division(-10, -5)); 
+		}
 }

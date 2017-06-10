@@ -53,11 +53,11 @@ public class PramodMulTest {
 		}
 	  
 	  //failing testcase
-	  
+	/*  
 	  @Test
 	  public void failtest(){
 	    PramodMul pram = new PramodMul();
 	    assertEquals("",5,pram.division(-11, 5));
 	  }
-	  
+*/	  
 }

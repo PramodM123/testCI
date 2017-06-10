@@ -44,6 +44,7 @@ public class PramodMulTest {
 	    assertEquals("10 x 5 must be 50", 50, tester.multiply(10, 5));
 	  }
 	  
+	  //added negative numbers test cases
 	  @Test
 	  public void testDiv1() {
 		  PramodMul pram = new PramodMul();

@@ -51,4 +51,13 @@ public class PramodMulTest {
 		  PramodMul pram = new PramodMul();
 		assertEquals("10 / 5 must be 2", 2 , pram.division(-10, -5)); 
 		}
+	  
+	  //failing testcase
+	  
+	  @Test
+	  public void failtest(){
+	    PramodMul pram = new PramodMul();
+	    assertEquals("",5,pram.division(-11, 5));
+	  }
+	  
 }

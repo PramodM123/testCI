@@ -38,10 +38,11 @@ public class PramodMulTest {
 		assertEquals("10 / 5 must be 2", 2 , pram.division(10, 5)); 
 		}
 	  
+	  //added negative multiplication junit
 	  @Test
 	  public void testMultiply1() {
 		  PramodMul tester = new PramodMul();
-	    assertEquals("10 x 5 must be 50", 50, tester.multiply(10, 5));
+	    assertEquals("10 x 5 must be 50", 50, tester.multiply(-10, -5));
 	  }
 	  
 	  //added negative numbers test cases

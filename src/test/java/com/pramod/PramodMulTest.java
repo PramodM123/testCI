@@ -32,6 +32,14 @@ public class PramodMulTest {
 		  pram.division(1000, 0);
 	  }
 	  
+	  //newly added
+	  @Test(expected = IllegalArgumentException.class)
+	  public void testExceptionIsThrowns()
+	  {
+		  PramodMul pram = new PramodMul();
+		  pram.division(100, 0);
+	  }
+	  
 	  @Test
 	  public void testDiv() {
 		  PramodMul pram = new PramodMul();
